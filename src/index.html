@@ -21,7 +21,7 @@
                   id="nome"
                   name="nome"
                   required
-                  placeholder="Digite seu nome"
+                  placeholder="Digite o nome da tarefa"
                 />
               </div>
               <div class="input-group">
@@ -50,10 +50,36 @@
                     />
                     <label for="alta">Alta</label>
               </div>
-              
+              <div class="input-group">
+                <label for="descricao">Descrição da tarefa</label>
+                <input
+                  type="text"
+                  id="descricao"
+                  name="descricao"
+                  placeholder="Digite a descrição da tarefa"
+                />
+              </div>
               <button type="submit" class="btn-submit">Cadastrar tarefa</button>
             </fieldset>
-
+            </form>
+        </section>
+        <section>
+            <form>
+                <fieldset>
+                    <legend>Lista de tarefas</legend>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Prioridade</th>
+                                <th>Descrição</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-tarefas">
+                        </tbody>
+                    </table>
+                </fieldset>
             </form>
         </section>
     </main>
