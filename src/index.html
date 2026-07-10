@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 3 - To-Do List</title>
+</head>
+<body>
+    <main>
+        <header>
+
+        </header>
+        <section class="campo-form">
+            <form action="#" method="POST" class="cadastro-tarefas">
+                <fieldset>
+              <legend>Cadastre uma nova tarefa</legend>
+              <div class="input-group">
+                <label for="nome">Nome da tarefa</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  required
+                  placeholder="Digite seu nome"
+                />
+              </div>
+              <div class="input-group">
+                <label for="prioridade">Prioridade da tarefa</label>
+                    <input
+                        type="radio"
+                        id="baixa"
+                        name="prioridade"
+                        value="baixa"
+                    />
+                    <label for="baixa">Baixa</label>
+
+                    <input
+                        type="radio"
+                        id="media"
+                        name="prioridade"
+                        value="media"
+                    />
+                    <label for="media">Media</label>
+
+                    <input
+                        type="radio"
+                        id="alta"
+                        name="prioridade"
+                        value="alta"
+                    />
+                    <label for="alta">Alta</label>
+              </div>
+              
+              <button type="submit" class="btn-submit">Cadastrar tarefa</button>
+            </fieldset>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>
