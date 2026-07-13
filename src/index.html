@@ -1,21 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto 3 - To-Do List</title>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
     <main>
-        <header>
-
-        </header>
-        <section class="campo-form">
-            <form action="#" method="POST" class="cadastro-tarefas">
-                <fieldset>
-              <legend>Cadastre uma nova tarefa</legend>
+      <header>
+        <b>Projeto 3 - Aplicação Interativa (To-Do List)</b>
+      </header>
+      <section class="campo-form">
+        <form action="#" method="POST" class="cadastro-tarefas">
+          <fieldset class="formulario">
+            <legend>Cadastre uma nova tarefa</legend>
+            <div class="formulario-form">
               <div class="input-group">
-                <label for="nome">Nome da tarefa</label>
+                <label for="nome" class="lbl-nome">Nome da tarefa</label>
                 <input
                   type="text"
                   id="nome"
@@ -25,31 +28,39 @@
                 />
               </div>
               <div class="input-group">
-                <label for="prioridade">Prioridade da tarefa</label>
-                    <input
-                        type="radio"
-                        id="baixa"
-                        name="prioridade"
-                        value="baixa"
-                    />
-                    <label for="baixa">Baixa</label>
+                <label for="prioridade" class="lbl-prioridade"
+                  >Prioridade da tarefa</label
+                >
 
-                    <input
-                        type="radio"
-                        id="media"
-                        name="prioridade"
-                        value="media"
-                    />
-                    <label for="media">Media</label>
+                <div class="prioridades">
+                  <input
+                    type="radio"
+                    id="baixa"
+                    name="prioridade"
+                    value="baixa"
+                  />
+                  <label for="baixa">Baixa</label>
 
-                    <input
-                        type="radio"
-                        id="alta"
-                        name="prioridade"
-                        value="alta"
-                    />
-                    <label for="alta">Alta</label>
+                  <input
+                    type="radio"
+                    id="media"
+                    name="prioridade"
+                    value="media"
+                  />
+                  <label for="media">Media</label>
+
+                  <input
+                    type="radio"
+                    id="alta"
+                    name="prioridade"
+                    value="alta"
+                  />
+                  <label for="alta">Alta</label>
+                </div>
               </div>
+              <button type="submit" class="btn-submit">Cadastrar tarefa</button>
+            </div>
+            <div class="descricao-form">
               <div class="input-group">
                 <label for="descricao">Descrição da tarefa</label>
                 <input
@@ -59,29 +70,28 @@
                   placeholder="Digite a descrição da tarefa"
                 />
               </div>
-              <button type="submit" class="btn-submit">Cadastrar tarefa</button>
-            </fieldset>
-            </form>
-        </section>
-        <section>
-            <form>
-                <fieldset>
-                    <legend>Lista de tarefas</legend>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Prioridade</th>
-                                <th>Descrição</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="lista-tarefas">
-                        </tbody>
-                    </table>
-                </fieldset>
-            </form>
-        </section>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="campo-lista">
+        <form>
+          <fieldset>
+            <legend>Lista de tarefas</legend>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Prioridade</th>
+                  <th>Descrição</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="lista-tarefas"></tbody>
+            </table>
+          </fieldset>
+        </form>
+      </section>
     </main>
-</body>
+  </body>
 </html>
