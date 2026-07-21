@@ -4,40 +4,44 @@
     box-sizing: border-box;
 }
 main{
-    display: grid;
-    grid-template-rows: 10vh auto;
-    grid-template-areas:
-        "header"
-        "campo-form"
-        "lista-tarefas";
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 }
-header{
-    grid-area: header;    
+header{   
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
     min-height: 50px;
+    width: 100%;
     background-color: #3a8dc4;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: 1.5rem;
 }
 .campo-form{
-    grid-area: campo-form;
     display: grid;
+    width: 100%;
+    max-width: 1200px;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    min-width: 100%;
-    max-width: 100%;
+    align-items: stretch;
+    padding: 0 1rem;
 }
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  width: 100%;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.prioridade-group{
+  justify-self: flex-end;
+}
+.nome-group{
+  justify-self: flex-start;
 }
 label {
   font-size: 1.2rem;
@@ -49,16 +53,39 @@ input {
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  width: 100%;
 }
-
+.prioridades{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e7e6e6;
+    width: 100%;
+    max-width: 15rem;
+    min-width: 0;
+    height: 2rem;
+    border-radius: 6px;
+    border: 2px solid #e0e6ed;
+}
+.baixa, .media, .alta {
+  display: flex;
+  flex-direction: row;
+}
 .formulario{
     display: grid;
-    grid-template-columns: 49vw 49vw;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
         "formulario descricao";
-    min-width: 100vw;
-    max-width: 100vw;
-    min-height: 100px;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    border: 2px solid #3a8dc4;
+    border-radius: 5px;
+    padding: 12px 15px;
+}
+legend{
+  margin-left: 20px;
 }
 .descricao-form{
     grid-area: descricao;
@@ -66,29 +93,29 @@ input {
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 50%;
+    width: 100%;
+}
+#descricao{
+  height: 100%;
+  width: 100%;
 }
 .formulario-form{
     grid-area: formulario;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "nome-tarefa  prioridade-tarefa"
-        "cadastrar-tarefa";
+    display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 50%;
+    width: 100%;
 }
-.lbl-nome{
-    grid-area: nome-tarefa;
-
-}
-.lbl-prioridade{
-    grid-area: prioridade-tarefa;
+.formulario-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 10px;
 }
 .btn-submit {
-    grid-area: cadastrar-tarefa;
   padding: 12px 15px;
   background-color: #3a8dc4;
   color: white;
@@ -97,5 +124,60 @@ input {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-left: 10px;
+  width: 100%;
+  max-width: 20rem;
+  justify-self: center;
+}
+#descricao {
+  padding: 12px 15px;
+  border: 2px solid #e0e6ed;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+  height: 5rem;
+  width: 100%;
+}
+.campo-lista {
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+.campo-lista table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+.campo-lista th,
+.campo-lista td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background-color: #f8f9fb;
+  border-radius: 6px;
+}
+.campo-lista thead tr {
+  margin: 0px 20px;
+}
+.campo-lista th:nth-child(1), .campo-lista td:nth-child(1) { width: 15%; } 
+.campo-lista th:nth-child(2), .campo-lista td:nth-child(2) { width: 15%; } 
+.campo-lista th:nth-child(3), .campo-lista td:nth-child(3) { width: 55%; } 
+.campo-lista th:nth-child(4), .campo-lista td:nth-child(4) { width: 15%; } 
+
+.campo-lista thead th {
+  background-color: tan;
+}
+.campo-lista tbody tr {
+  background-color: transparent;
+}
+@media (max-width: 1000px ) {
+  .formulario-container {
+    grid-template-columns: 1fr; 
+  }
+  .btn-submit {
+    grid-column: 1;
+    justify-self: flex-start; 
+  }
+  .prioridade-group{
+    justify-self: flex-start;
+  }
 }

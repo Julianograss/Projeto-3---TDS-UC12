@@ -17,58 +17,66 @@
           <fieldset class="formulario">
             <legend>Cadastre uma nova tarefa</legend>
             <div class="formulario-form">
-              <div class="input-group">
-                <label for="nome" class="lbl-nome">Nome da tarefa</label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  required
-                  placeholder="Digite o nome da tarefa"
-                />
-              </div>
-              <div class="input-group">
-                <label for="prioridade" class="lbl-prioridade"
-                  >Prioridade da tarefa</label
-                >
-
-                <div class="prioridades">
+              <div class="formulario-container">
+                <div class="input-group nome-group">
+                  <label for="nome" class="lbl-nome">Nome da tarefa</label>
                   <input
-                    type="radio"
-                    id="baixa"
-                    name="prioridade"
-                    value="baixa"
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    required
+                    placeholder="Digite o nome da tarefa"
                   />
-                  <label for="baixa">Baixa</label>
-
-                  <input
-                    type="radio"
-                    id="media"
-                    name="prioridade"
-                    value="media"
-                  />
-                  <label for="media">Media</label>
-
-                  <input
-                    type="radio"
-                    id="alta"
-                    name="prioridade"
-                    value="alta"
-                  />
-                  <label for="alta">Alta</label>
                 </div>
+                <div class="input-group prioridade-group">
+                  <label for="prioridade" class="lbl-prioridade"
+                    >Prioridade da tarefa</label
+                  >
+                  <div class="prioridades">
+                    <div class="baixa">
+                      <input
+                        type="radio"
+                        id="baixa"
+                        name="prioridade"
+                        value="baixa"
+                      />
+                      <label for="baixa">Baixa</label>
+                    </div>
+
+                    <div class="media">
+                      <input
+                        type="radio"
+                        id="media"
+                        name="prioridade"
+                        value="media"
+                      />
+                      <label for="media">Média</label>
+                    </div>
+
+                    <div class="alta">
+                      <input
+                        type="radio"
+                        id="alta"
+                        name="prioridade"
+                        value="alta"
+                      />
+                      <label for="alta">Alta</label>
+                    </div>
+                  </div>
+                </div>
+                <button id="btn-cadastrar" type="submit" class="btn-submit">
+                  Cadastrar tarefa
+                </button>
               </div>
-              <button type="submit" class="btn-submit">Cadastrar tarefa</button>
             </div>
             <div class="descricao-form">
-              <div class="input-group">
+              <div class="input-group descricao-group">
                 <label for="descricao">Descrição da tarefa</label>
                 <input
-                  type="text"
                   id="descricao"
                   name="descricao"
                   placeholder="Digite a descrição da tarefa"
-                />
+                ></input>
               </div>
             </div>
           </fieldset>
@@ -87,7 +95,17 @@
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody id="lista-tarefas"></tbody>
+              <tbody id="lista-tarefas">
+                <tr>
+                  <td>teste</td>
+                  <td>teste</td>
+                  <td>teste</td>
+                  <td>
+                    <button class="btn-editar">Editar</button>
+                    <button class="btn-excluir">Excluir</button>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </fieldset>
         </form>
