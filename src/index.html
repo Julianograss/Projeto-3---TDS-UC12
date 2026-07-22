@@ -16,10 +16,11 @@
         <form action="#" method="POST" class="cadastro-tarefas">
           <fieldset class="formulario">
             <legend>Cadastre uma nova tarefa</legend>
-            <div class="formulario-form">
-              <div class="formulario-container">
+
+            <div class="formulario-grid">
+              <div class="form-inputs">
                 <div class="input-group nome-group">
-                  <label for="nome" class="lbl-nome">Nome da tarefa</label>
+                  <label for="nome">Nome da tarefa</label>
                   <input
                     type="text"
                     id="nome"
@@ -28,10 +29,15 @@
                     placeholder="Digite o nome da tarefa"
                   />
                 </div>
+
+                <div class="input-group data-group">
+                  <label for="data">Data limite</label>
+                  <input type="date" id="data" name="data" required />
+                </div>
+
                 <div class="input-group prioridade-group">
-                  <label for="prioridade" class="lbl-prioridade"
-                    >Prioridade da tarefa</label
-                  >
+                  <label>Prioridade da tarefa</label>
+
                   <div class="prioridades">
                     <div class="baixa">
                       <input
@@ -64,20 +70,28 @@
                     </div>
                   </div>
                 </div>
-                <button id="btn-cadastrar" type="submit" class="btn-submit">
-                  Cadastrar tarefa
-                </button>
+
+                <div class="input-group hora-group">
+                  <label for="hora">Horário limite</label>
+                  <input type="time" id="hora" name="hora" required />
+                </div>
               </div>
-            </div>
-            <div class="descricao-form">
-              <div class="input-group descricao-group">
-                <label for="descricao">Descrição da tarefa</label>
-                <input
-                  id="descricao"
-                  name="descricao"
-                  placeholder="Digite a descrição da tarefa"
-                ></input>
-              </div>
+
+              <aside class="descricao-form">
+                <div class="input-group descricao-group">
+                  <label for="descricao">Descrição da tarefa</label>
+
+                  <textarea
+                    id="descricao"
+                    name="descricao"
+                    placeholder="Digite a descrição da tarefa"
+                  ></textarea>
+                </div>
+              </aside>
+
+              <button id="btn-cadastrar" type="submit" class="btn-submit">
+                Cadastrar tarefa
+              </button>
             </div>
           </fieldset>
         </form>
@@ -92,20 +106,12 @@
                   <th>Nome</th>
                   <th>Prioridade</th>
                   <th>Descrição</th>
+                  <th>Status</th>
+                  <th>Data/Hora</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody id="lista-tarefas">
-                <tr>
-                  <td>teste</td>
-                  <td>teste</td>
-                  <td>teste</td>
-                  <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-excluir">Excluir</button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="lista-tarefas"></tbody>
             </table>
           </fieldset>
         </form>
