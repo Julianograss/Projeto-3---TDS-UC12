@@ -25,12 +25,12 @@ function iniciarContagemRegressiva(dataAlvo, spanTimer, botao) {
 
     if (dias > 0) {
       formato += `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    } else if (horas > 0){
-        formato += `${horas}h ${minutos}m ${segundos}s`;
-    } else if (minutos > 0 && formato.contains(!`${minutos}m ${segundos}s`)){
-        formato += `${minutos}m ${segundos}s`;
-    }else {
-        formato += `${segundos}s`;
+    } else if (horas > 0) {
+      formato += `${horas}h ${minutos}m ${segundos}s`;
+    } else if (minutos > 0 && formato.contains(!`${minutos}m ${segundos}s`)) {
+      formato += `${minutos}m ${segundos}s`;
+    } else {
+      formato += `${segundos}s`;
     }
 
     spanTimer.textContent = formato;
@@ -56,8 +56,18 @@ function verificarPrazos() {
       atualizarStatusLinha(linha, "Pendente");
     }
   });
+  linhas.forEach((linha) => {
+    const elementos = linha.querySelectorAll("td");
+    if (linha.dataset.status === "Concluida") {
+      elementos.forEach((td) => (td.style.backgroundColor = "#63b360"));
+    } else if (linha.dataset.status === "Incompleta") {
+      elementos.forEach((td) => (td.style.backgroundColor = "#e5a0a0"));
+    } else {
+      elementos.forEach((td) => (td.style.backgroundColor = ""));
+    }
+  });
 }
-setInterval(verificarPrazos, 60000);
+setInterval(verificarPrazos, 1000);
 function limparFormulario() {
   document.getElementById("nome").value = "";
   document.getElementById("descricao").value = "";
@@ -74,7 +84,7 @@ function limparFormulario() {
   linhaEditando = null;
 }
 function validarFormulario(nome, prioridade, data, hora) {
-  if (!nome.trim()|| !prioridade || !data || !hora) {
+  if (!nome.trim() || !prioridade || !data || !hora) {
     alert("Preencha todos os campos do formulário");
     return false;
   }
@@ -115,7 +125,7 @@ function criarLinhaTarefa(
     media: "#ffd54f",
     alta: "#e57373",
   };
-  celulaPrioridade.textContent = prioridade;
+  celulaPrioridade.textContent = prioridade.toUpperCase();
   celulaPrioridade.style.color = cores[prioridade] || "transparent";
   celulaPrioridade.style.fontWeight = "bold";
   celulaPrioridade.style.borderRadius = "8px";
@@ -137,13 +147,9 @@ function criarLinhaTarefa(
   const spanTimer = celulaDataHora.querySelector(".timer");
   const btnConcluir = celulaAcoes.querySelector(".btn-concluir");
 
-  const intervalo = iniciarContagemRegressiva(
-  prazo,
-  spanTimer,
-  btnConcluir
-);
+  const intervalo = iniciarContagemRegressiva(prazo, spanTimer, btnConcluir);
 
-novaLinha.dataset.intervalo = intervalo;
+  novaLinha.dataset.intervalo = intervalo;
   novaLinha.appendChild(celulaNome);
   novaLinha.appendChild(celulaPrioridade);
   novaLinha.appendChild(celulaDescricao);
