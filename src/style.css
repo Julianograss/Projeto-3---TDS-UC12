@@ -178,7 +178,7 @@ legend {
   color: #1565c0;
   background-color: rgba(21, 101, 192, 0.12);
 }
-.status-concluída {
+.status-concluida {
   color: #2e7d32;
   background-color: rgba(46, 125, 50, 0.12);
 }
@@ -211,7 +211,11 @@ textarea#descricao {
 .campo-lista table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 0.75rem;
+
+}
+table{
+    width:100%;
+    table-layout:fixed;
 }
 .campo-lista th,
 .campo-lista td {
@@ -219,6 +223,11 @@ textarea#descricao {
   text-align: left;
   background-color: #f8f9fb;
   border-radius: 6px;
+}
+.campo-lista td{
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 .campo-lista thead tr {
   margin: 0px 20px;
@@ -229,11 +238,14 @@ textarea#descricao {
 }
 .campo-lista th:nth-child(2),
 .campo-lista td:nth-child(2) {
-  width: 12%;
+  width: 10%;
 }
 .campo-lista th:nth-child(3),
 .campo-lista td:nth-child(3) {
   width: 28%;
+}
+.campo-lista td:nth-child(3){
+  overflow-wrap:anywhere;
 }
 .campo-lista th:nth-child(4),
 .campo-lista td:nth-child(4) {
@@ -249,7 +261,7 @@ textarea#descricao {
 }
 
 .campo-lista thead th {
-  background-color: tan;
+  background-color: rgb(206, 205, 203);
 }
 .campo-lista tbody tr {
   background-color: transparent;
@@ -276,29 +288,4 @@ textarea#descricao {
   #descricao {
     min-height: 180px;
   }
-}
-@keyframes blink-animation {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.05); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-.alert-badge {
-    display: none; /* Oculto por padrão */
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: white;
-    background-color: var(--danger); /* Vermelho */
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-left: auto;
-    /* Aplica a animação infinita de 1 segundo */
-    animation: blink-animation 1s infinite ease-in-out; 
-    box-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
-}
-
-/* Exibe o selo APENAS quando a classe .is-due-now é adicionada pelo JS 
-   (e garante que não exiba se a tarefa já estiver concluída) */
-.task-item.is-due-now:not(.completed) .alert-badge {
-    display: inline-block;
 }
